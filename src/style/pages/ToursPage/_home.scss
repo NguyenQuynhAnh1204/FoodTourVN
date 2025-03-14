@@ -1,0 +1,12 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+
+
+.tour-page {
+    @include space-page;
+    font-size: 1.6rem;
+    a {
+        color: $cl-black;
+        text-decoration: none;
+    }
+}

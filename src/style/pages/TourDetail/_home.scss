@@ -1,0 +1,24 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+
+.tour-detail {
+    @include space-page;
+    font-size: 1.6rem;
+    a {
+        color: $cl-black;
+        text-decoration: none;
+    }
+    .tour-detail_container {
+        margin: 3rem 0;
+        h4 {
+            @include font-fml-roboto;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        p {
+            @include font-fml-cabin;
+        }
+    }
+}
+
+

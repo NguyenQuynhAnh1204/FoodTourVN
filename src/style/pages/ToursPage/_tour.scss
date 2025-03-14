@@ -1,0 +1,130 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+
+
+
+.tour-container {
+    display: flex;
+    margin: 3rem 0;
+    width: 100%;
+    .tour-main { 
+        width: 100%;
+        .tour-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+            gap: 2.4rem;
+            .tour-item {
+                width: 28rem;
+                height: $h-container-blog;
+                border-radius: 5px;
+                overflow: hidden;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+            img {
+                width: 100%;    
+                height: 55%;
+            }
+            .description {
+                margin: 1rem 1.4rem;
+                h4 {
+                    @include font-fml-roboto;
+                }
+                .tour-inf_time {
+                    @include font-fml-cabin;
+                    display: inline;
+                    p {
+                        padding-bottom: 2px;
+                    }
+                    span {
+                        color: $cl-main;
+                        font-weight: 500;
+                    }
+                }
+                .tour-inf_rating {
+                    margin: 0.4rem 0;
+                    font-size: 1rem;
+                    svg {
+                        color: $cl-star;
+                    }
+                }
+                .tour-inf_price {
+                    @include font-fml-cabin;
+                    font-size: 1.6rem;
+                    span {
+                        color: $cl-red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.tour-filter {
+    width: 22%;
+    height: 100%;
+    margin-right: 2.4rem;
+    padding: 1.2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    fieldset {
+        width: 100%;
+        margin: 1.4rem 0;
+        label {
+            display: block
+        }
+        .filter-title {
+            @include font-fml-roboto;
+        }
+        input {
+            margin-right: 8px;
+            accent-color: $cl-main;
+            @include font-fml-cabin;
+        }
+    }
+    .input-range {
+        margin-top: 1rem;
+        position: relative;
+        span {
+            font-size: 12px;
+            position: absolute;
+            &:first-child {
+                bottom: 22px;
+                left: 4px;
+            }
+            &:last-child {
+                bottom: 22px;
+                right: 8px;
+            }
+
+        }
+        input {
+            width: 95%;
+        }
+    }
+}
+
+
+.tour-sort {
+    margin-bottom: 1.8rem;
+    button {
+        font-size: 1.4rem;
+        margin-right: 1rem;
+        padding: 6px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: $cl-gray;
+        width: 12rem;
+        .sort-btn {
+            background-color: $cl-bg-btn-tour-sort;
+            border: 1px solid $cl-border-btn-tour-sort;
+            color: $cl-border-btn-tour-sort;
+        }
+    }
+}
+
+
+
+@media screen {
+    
+}

@@ -1,0 +1,14 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+
+
+.blog-page {
+    @include space-page;
+    font-size: 1.6rem;
+    a {
+        color: $cl-black;
+        text-decoration: none;
+    }
+}
+
+

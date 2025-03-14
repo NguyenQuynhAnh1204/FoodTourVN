@@ -1,0 +1,90 @@
+@use "../abstracts/" as *;
+@use "../utils/" as *;
+
+.header {
+    background-color: $cl-bg-header;
+    font-family: $font-family;
+    height: $h-header;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    @include center();
+}
+
+
+.header-content {
+    padding: 0 13.5rem;
+    height: 100%;
+    width: 100%;
+    @include center();
+    justify-content: space-between;
+    .logo {
+        @include logo;
+    }
+
+    .search {
+        @include center;
+        width: 68%;
+        .filter-icon {
+            border-radius: 5px;
+            background-color: $cl-main;
+            color: $cl-white;
+            @include center();
+            @include form-butt-head($font-size: 1.4rem);
+            cursor: pointer;
+            &:active {
+                background-color: $cl-bg-signin;
+                color: $cl-white;
+            }
+        }
+        .butt-local {
+            border-radius: 5px;
+            background-color: $cl-main;
+            color: $cl-white;
+            @include form-butt-head(0.8rem 2rem, 1.4rem);
+            border: none;
+            cursor: pointer;
+        }
+        .search-input {
+            width: 100%;
+            position: relative;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            @include form-butt-head(0.8rem 2rem);
+            input {
+                width: 94%;
+                font-size: 1.4rem;
+                border: none;
+                outline: none;
+            }
+            .search-icon {
+                position: absolute;
+                color: $cl-main;
+                font-size: 1.6rem;
+                top: 10px;
+                right: 20px;
+            }
+        }
+    }
+    .auth {
+        @include center;
+        .log-in {
+            border-radius: 5px;
+            background-color: $cl-white;
+            color: $cl-main;
+            @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 0.4rem);
+            border: 1px solid $cl-main;
+            cursor: pointer;
+        }
+        .sign-up {
+            border-radius: 5px;
+            background-color: $cl-bg-signin;
+            color: $cl-white;
+            @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 1.6rem 0 0.4rem);
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

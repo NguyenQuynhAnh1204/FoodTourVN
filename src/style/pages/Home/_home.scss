@@ -1,0 +1,27 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+
+.home {
+    @include space-page;
+    // background-color: #ccc;
+    .logo {
+        background-color: $cl-bg-logo;
+        @include form-butt-head;
+        @include center();
+    }
+    .title-text {
+        @include title-text;
+        a {
+            color: $cl-black;
+            text-decoration: none;
+        }
+        .title-text_icon {
+            font-size: 1.6rem;
+            margin: 0 0.8rem;
+        }
+    } 
+    .slick-arrow::before {
+        color: $cl-black;
+    }  
+}
+

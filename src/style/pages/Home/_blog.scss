@@ -1,0 +1,13 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+
+
+.blog {
+    margin-bottom: 4.8rem;
+    width: 100%;
+    .blogs-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(350px, 1fr));
+        gap: 2.4rem;
+    }
+}

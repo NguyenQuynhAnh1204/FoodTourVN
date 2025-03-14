@@ -1,0 +1,18 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+@use "../../layout/" as *;
+
+.tour-near {
+    margin-bottom: 4.8rem;
+    width: 100%;
+    .tour-near_info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(350px, 1fr));
+        gap: 2.4rem;
+    }
+}
+
+
+
+
+
