@@ -1,4 +1,5 @@
-import { FaRegStar, FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
+
+import StarRating from "../ShowStarIcon/StarRating";
 const data = [
     {
         img: "img/anh12.jpeg",
@@ -62,21 +63,5 @@ function TourInf() {
             </>
     )
 }
-function StarRating({ star, maxStars = 5 }) {
-    return (
-    <div>
-        {Array.from({ length: maxStars }, (_, index) => {
-            if (index < Math.floor(star)) {
-                return <FaStar key={index} />;
-            } else if (index === Math.floor(star) && star % 1 !== 0) {
-                return <FaRegStarHalfStroke key={index} />;
-            } else {
-                return <FaRegStar key={index} />;
-            }
-        })}
-    </div>
-)
-}
-
 
 export default TourInf;

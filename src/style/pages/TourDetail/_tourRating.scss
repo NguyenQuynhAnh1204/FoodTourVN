@@ -1,0 +1,58 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;  
+
+.tour-detail_rating {
+    width: 73%;
+    .rating-title {
+        display: flex;
+        justify-content: center;
+        @include font-fml-roboto;
+        font-size: 22px;
+    }
+    .rating-filter {
+        margin-top: 2rem;
+        display: flex;
+       
+    }
+    .rating-star {
+        width: 20%;
+        color: $cl-main;
+        font-size: 20px;
+        padding: 0 2rem;
+        p {
+            span {
+                @include font-fml-roboto;
+                font-size: 26px;
+            }
+            padding: 0.8rem;
+            font-size: 18px;
+        }
+    }
+    .rating-filter_btn {
+        button {
+            width: 12.4rem;
+            height: 3.4rem;
+            border: none;
+            background-color: $cl-gray;
+            @include font-fml-cabin;
+            text-align: center;
+            margin: 0 1rem 1rem 0;
+            border-radius: 5px;
+        }
+        .btn-click {
+            background-color: $cl-bg-btn-tour-sort;
+            border: 1px solid $cl-main;
+            color: $cl-main;
+        }
+    }
+    
+}
+
+
+@media (min-width: 1441px) {
+    .tour-detail_rating {
+        .rating-star {
+            width: 8%;
+        }
+    }
+}

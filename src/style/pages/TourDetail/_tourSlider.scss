@@ -1,0 +1,91 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *; 
+
+
+.tour-detail_img {
+    display: flex;
+    width: 100%;
+    .img-slider {
+        // background-color: aqua;
+        width: 16%;
+        height: auto;
+        .img-item{
+            // background-color: aqua;
+            width: 15rem;
+            height: 10rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; 
+            }
+        }
+        .reset {
+            top: 96%;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+            width: 50px;
+            &::before {
+                overflow: hidden;
+                border-radius: 99px;
+                background-color: #fff;
+            }
+        }
+        .reset::before {
+            color: #999999 !important; /* Đặt màu trắng cho nội dung */
+        }
+    }
+    
+    .tour-img-show {
+        margin: 0 2.4rem 0.6rem;
+        overflow: hidden;
+        width: 100%;
+        img {
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+        }
+    }   
+}
+
+// /* Định dạng chung cho nút */
+// .slick-prev, .slick-next {
+//     position: absolute;
+//     bottom: 0;
+//     top: 0; /* Đẩy nút xuống dưới slider */
+//     left: 50%;
+//     transform: translateX(-50%);
+//     width: 40px;
+//     height: 40px;
+//     background-color: #333;
+//     color: white;
+//     border-radius: 50%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     z-index: 10;
+// }
+
+// /* Điều chỉnh nút next để nằm bên phải nút prev */
+// .slick-next {
+//     left: calc(50% + 50px); /* Dịch sang phải */
+// }
+
+// /* Điều chỉnh nút prev để nằm bên trái nút next */
+// .slick-prev {
+//     left: calc(50% - 50px); /* Dịch sang trái */
+// }
+
+// /* Thay đổi icon mũi tên */
+// .slick-prev:before,
+// .slick-next:before {
+//     font-size: 20px;
+//     color: rgb(162, 142, 142);
+// }
+
+// /* Nếu muốn đổi thành mũi tên xuống */
+// .slick-prev:before {
+//     content: "↓";
+// }

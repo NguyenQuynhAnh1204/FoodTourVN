@@ -1,0 +1,33 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;  
+
+
+.tour-detail_attend {
+    margin-top: 3rem;
+    width: 73%;
+    .inf-attend-title {
+        display: flex;
+        justify-content: center;
+        @include font-fml-roboto;
+        font-size: 22px;
+    }
+    .inf-attend {
+        display: flex;
+        gap: 2.4rem;
+        .inf-attend-item {
+            border-radius: 10px;
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: $cl-gray;
+            p {
+                @include font-fml-roboto;
+                font-size: 2rem;
+            }
+            li {
+                @include font-fml-cabin;
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+    }
+}

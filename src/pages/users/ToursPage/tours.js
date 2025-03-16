@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import {ROUTERS} from "../../../utils/router";
 
 import { useEffect, useState } from "react";
-import { FaRegStar, FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
+import StarRating from "../Theme/ShowStarIcon/StarRating";
 import Filter from "./filter";
 import SortTour from "./sort";
 
@@ -54,7 +54,6 @@ function TourItem() {
                                             <StarRating star={d.star}/>
                                         </div>
                                         <div className="tour-inf_price">
-                                            
                                             <span>{d.price.toLocaleString("vi-VN")}
                                             <sup>đ</sup></span>
                                             / Khách 
@@ -77,19 +76,4 @@ function TourItem() {
     )
 }
 
-function StarRating({ star, maxStars = 5 }) {
-    return (
-    <div>
-        {Array.from({ length: maxStars }, (_, index) => {
-            if (index < Math.floor(star)) {
-                return <FaStar key={index} />;
-            } else if (index === Math.floor(star) && star % 1 !== 0) {
-                return <FaRegStarHalfStroke key={index} />;
-            } else {
-                return <FaRegStar key={index} />;
-            }
-        })}
-    </div>
-)
-}
 export default TourItem;

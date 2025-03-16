@@ -1,0 +1,32 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;  
+
+
+.tour-detail_timetable {
+    width: 73%;
+    .timetable-title {
+        margin: 2rem;
+        @include font-fml-roboto;
+        font-size: 22px;
+        display: flex;
+        justify-content: center;
+    }
+    .timetable-detail {
+        border-radius: 10px;
+        // background-color: $cl-gray;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 2.4rem;
+        margin: 2rem 0;
+        .timetable-detail_time {
+            @include font-fml-roboto;
+            font-family: 2rem;
+        }
+        .timetable-detail_text {
+            margin-left: 4.5rem;
+            @include font-fml-cabin;
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+            overflow-wrap: break-word;
+        }
+    }
+}

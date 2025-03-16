@@ -1,0 +1,57 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;  
+
+
+.tour-detail_price {
+    width: 75%;
+    height: 100%;
+    background-color: $cl-white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 2rem 1.6rem;
+    .tour-detail_money {
+        margin-bottom: 1rem;
+        p {
+            @include  font-fml-roboto;
+            padding: 4px 0;
+            
+        }
+        .tour-detail_money-VND {
+            margin-top: 1rem;
+            font-size: 22px;
+            span {
+                color: $cl-red;
+            }
+        }
+    }
+
+    .tour-detail_filter {
+       @include font-fml-cabin;
+       margin-bottom: 2rem;
+       p {
+           font-weight: 500;
+            padding: 4px 0;
+       }
+    }
+}
+
+
+.btn-like {
+    margin-bottom: 1.6rem;
+    width: 100%;
+    border: 1px solid $cl-main;
+    border-radius: 5px;
+    background-color: $cl-white;
+    color: $cl-main;
+    @include font-fml-roboto;
+}
+
+.btn-book {
+    width: 100%;
+    @include font-fml-roboto;
+    border: none;
+    background-color: $cl-main;
+    color: $cl-white;
+    border-radius: 5px;
+}

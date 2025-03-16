@@ -82,7 +82,7 @@
             border-radius: 5px;
             background-color: $cl-bg-signin;
             color: $cl-white;
-            @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 1.6rem 0 0.4rem);
+            @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 0 0 0.4rem);
             border: none;
             cursor: pointer;
         }
