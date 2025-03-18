@@ -1,6 +1,10 @@
 @use "../../abstracts/" as *;
 @use "../../utils/" as *;
 
+.over {
+    opacity: 0.6;
+    background-color: #00000033;
+}
 .home {
     @include space-page;
     // background-color: #ccc;

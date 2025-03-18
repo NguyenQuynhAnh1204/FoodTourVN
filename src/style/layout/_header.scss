@@ -1,6 +1,7 @@
 @use "../abstracts/" as *;
 @use "../utils/" as *;
 
+
 .header {
     background-color: $cl-bg-header;
     font-family: $font-family;
@@ -15,7 +16,7 @@
 
 
 .header-content {
-    padding: 0 13.5rem;
+    margin: 0 13.5rem;
     height: 100%;
     width: 100%;
     @include center();
@@ -27,18 +28,6 @@
     .search {
         @include center;
         width: 68%;
-        .filter-icon {
-            border-radius: 5px;
-            background-color: $cl-main;
-            color: $cl-white;
-            @include center();
-            @include form-butt-head($font-size: 1.4rem);
-            cursor: pointer;
-            &:active {
-                background-color: $cl-bg-signin;
-                color: $cl-white;
-            }
-        }
         .butt-local {
             border-radius: 5px;
             background-color: $cl-main;
@@ -68,23 +57,100 @@
             }
         }
     }
-    .auth {
-        @include center;
-        .log-in {
-            border-radius: 5px;
-            background-color: $cl-white;
-            color: $cl-main;
-            @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 0.4rem);
-            border: 1px solid $cl-main;
-            cursor: pointer;
-        }
-        .sign-up {
-            border-radius: 5px;
+}
+
+
+.filter-btn {
+    button {
+        border: none;
+    } 
+    .filter-icon {
+        border-radius: 5px;
+        background-color: $cl-main;
+        color: $cl-white;
+        @include center();
+        @include form-butt-head($font-size: 1.4rem);
+        cursor: pointer;
+        &:active {
             background-color: $cl-bg-signin;
             color: $cl-white;
-            @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 0 0 0.4rem);
-            border: none;
-            cursor: pointer;
         }
+    }
+}
+
+.menu {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 1rem 13.5rem;
+    
+}
+.menu-title {
+    background-color: $cl-white;
+    padding: 1rem 1.4rem;
+    margin-right: 1.4rem;
+    width: 14%;
+    line-height: 2.8rem;
+    border-radius: 5px;
+    font-size: 1.6em;
+    overflow: hidden;
+    cursor: pointer;
+    .menu-title_text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+    .menu-icon {
+        font-size: 12px;
+    }
+}
+
+.submenu {
+    padding: 1.4rem 2rem;
+    background-color: $cl-white;
+    position: absolute;
+    height: 250px;
+    margin-left: 1rem;
+    width: 50%;
+    left: 16%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    .submenu-title{
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-bottom: 1rem
+    }
+    .submenu-item {
+        font-size: 1.4rem;
+        line-height: 3;
+    }
+}
+    
+// filter dropdown
+
+
+
+
+
+.auth {
+    @include center;
+    .log-in {
+        border-radius: 5px;
+        background-color: $cl-white;
+        color: $cl-main;
+        @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 0.4rem);
+        border: 1px solid $cl-main;
+        cursor: pointer;
+    }
+    .sign-up {
+        border-radius: 5px;
+        background-color: $cl-bg-signin;
+        color: $cl-white;
+        @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 0 0 0.4rem);
+        border: none;
+        cursor: pointer;
     }
 }

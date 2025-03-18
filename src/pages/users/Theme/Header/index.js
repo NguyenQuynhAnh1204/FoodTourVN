@@ -1,5 +1,6 @@
-import { AiOutlineMenu } from "react-icons/ai";
+import FilterBtn from "./filter/filterBtn";
 import { FaSearch } from "react-icons/fa";
+
 function Header () {
     return (
         <div className="header">
@@ -11,9 +12,7 @@ function Header () {
                 </div>
 
                 <div className="search">
-                    <div className="filter-icon">
-                        <AiOutlineMenu />
-                    </div>
+                    <FilterBtn/>
                     <div className="search-input">
                         <input placeholder="Search" type="text" />
                         <FaSearch  className="search-icon"/>
