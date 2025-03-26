@@ -24,41 +24,7 @@
     .logo {
         @include logo;
     }
-
-    .search {
-        @include center;
-        width: 68%;
-        .butt-local {
-            border-radius: 5px;
-            background-color: $cl-main;
-            color: $cl-white;
-            @include form-butt-head(0.8rem 2rem, 1.4rem);
-            border: none;
-            cursor: pointer;
-        }
-        .search-input {
-            width: 100%;
-            position: relative;
-            border-radius: 5px;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            @include form-butt-head(0.8rem 2rem);
-            input {
-                width: 94%;
-                font-size: 1.4rem;
-                border: none;
-                outline: none;
-            }
-            .search-icon {
-                position: absolute;
-                color: $cl-main;
-                font-size: 1.6rem;
-                top: 10px;
-                right: 20px;
-            }
-        }
-    }
 }
-
 
 .filter-btn {
     button {
@@ -75,14 +41,16 @@
             background-color: $cl-bg-signin;
             color: $cl-white;
         }
+        &.btn-active {
+            background-color: $cl-btn-active;
+        }
     }
 }
+
 
 .menu {
     display: flex;
     position: absolute;
-    top: 100%;
-    left: 0;
     width: 100%;
     margin: 1rem 13.5rem;
     
@@ -90,8 +58,7 @@
 .menu-title {
     background-color: $cl-white;
     padding: 1rem 1.4rem;
-    margin-right: 1.4rem;
-    width: 14%;
+    width: 15%;
     line-height: 2.8rem;
     border-radius: 5px;
     font-size: 1.6em;
@@ -100,7 +67,7 @@
     .menu-title_text {
         display: flex;
         justify-content: space-between;
-        align-items: center
+        align-items: center;
     }
     .menu-icon {
         font-size: 12px;
@@ -111,10 +78,9 @@
     padding: 1.4rem 2rem;
     background-color: $cl-white;
     position: absolute;
-    height: 250px;
     margin-left: 1rem;
     width: 50%;
-    left: 16%;
+    
     display: flex;
     justify-content: space-between;
     border-radius: 5px;
@@ -128,29 +94,119 @@
         line-height: 3;
     }
 }
-    
-// filter dropdown
+
+
+.header-filter {
+    .menu {
+        top: 100%;
+        left: 0;
+    }
+    .menu-title {
+        margin-right: 1.4rem;
+    }
+    .submenu {
+        left: 16%;
+    }
+}
 
 
 
+.header-location {
+    .menu {
+        top: 100%;
+        right: 6%;
+        width: 100%;
+        margin: 1rem 13.5rem;
+        justify-content: flex-end;
+    }
+    .menu-icon {
+        transform: rotate(180deg);
+    }
+    .menu-title_text {
+        margin-right: 1.4rem;
+        flex-direction: row-reverse;
+    } 
+    .submenu {
+        right: 17%;
+    }
+}
 
+
+.butt-local {
+    border-radius: 5px;
+    background-color: $cl-main;
+    color: $cl-white;
+    @include form-butt-head(0.8rem 2rem, 1.4rem);
+    border: none;
+    cursor: pointer;
+    &.btn-active {
+        background-color: $cl-btn-active;
+    }
+}
+
+
+.search {
+    @include center;
+    width: 68%;
+    .header-search {
+        width: 100%;
+    }
+    .search-input {
+        position: relative;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        @include form-butt-head(0.8rem 2rem);
+        input {
+            width: 94%;
+            font-size: 1.4rem;
+            border: none;
+            outline: none;
+        }
+        .search-icon {
+            position: absolute;
+            color: $cl-main;
+            font-size: 1.6rem;
+            top: 10px;
+            right: 20px;
+        }
+    }
+    .search-input_focus {
+        border: 1px solid $cl-main;
+    }
+    .header-search_text {
+       @include dropdown-header;
+        display: flex;
+        justify-content: space-between;
+        .header-search_blogs {
+            width: 20%;
+        }
+        .header-search_blogs-title {
+            @include font-fml-roboto;
+        }
+        .header-search_tours {
+            display: flex;
+            gap: 2.4rem;
+        }
+        .header-search_tours-img {
+            width: 120px;
+            height: 135px;
+            border-radius: 5px;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }   
+    }
+}
 
 .auth {
     @include center;
     .log-in {
-        border-radius: 5px;
-        background-color: $cl-white;
-        color: $cl-main;
-        @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 0.4rem);
-        border: 1px solid $cl-main;
-        cursor: pointer;
+        @include sign-btn($cl-white, $cl-main);
     }
     .sign-up {
-        border-radius: 5px;
-        background-color: $cl-bg-signin;
-        color: $cl-white;
-        @include form-butt-head(0.4rem 0.8rem, 1.4rem, 0 0 0 0.4rem);
+        @include sign-btn($cl-bg-signin, $cl-white);
         border: none;
-        cursor: pointer;
     }
 }

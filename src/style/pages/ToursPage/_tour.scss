@@ -115,11 +115,11 @@
         border-radius: 5px;
         background-color: $cl-gray;
         width: 12rem;
-        .sort-btn {
-            background-color: $cl-bg-btn-tour-sort;
-            border: 1px solid $cl-border-btn-tour-sort;
-            color: $cl-border-btn-tour-sort;
-        }
+    }
+    .sort-btn {
+        background-color: $cl-bg-btn-tour-sort;
+        border: 1px solid $cl-border-btn-tour-sort;
+        color: $cl-border-btn-tour-sort;
     }
 }
 

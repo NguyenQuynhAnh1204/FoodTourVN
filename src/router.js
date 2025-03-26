@@ -4,6 +4,8 @@ import Tour from "./pages/users/ToursPage/home";
 import Blog from "./pages/users/BlogsPage/home";
 import BlogDetail from "./pages/users/BlogDetails";
 import TourDetail from "./pages/users/TourDetails/home";
+import UserInfPage from "./pages/users/AccountPage";
+import BookingHistoryPage from "./pages/users/BookingHistoryPage";
 import { ROUTERS } from "./utils/router";
 import MasterLayout from "./pages/users/Theme/MasterLayout";
 
@@ -28,6 +30,14 @@ const renderUserRouter = () => {
         {
             path: ROUTERS.USER.TOUR_DETAIL,
             component: <TourDetail/>,
+        },
+        {
+            path: ROUTERS.USER.USER_INF,
+            component: <UserInfPage/>
+        },
+        {
+            path: ROUTERS.USER.BOOK_HISTORY,
+            component: <BookingHistoryPage/>
         }
     ]
     return (

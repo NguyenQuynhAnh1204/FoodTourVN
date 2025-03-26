@@ -1,0 +1,44 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+
+.user-inf_page {
+    @include space-page;
+    font-size: 1.6rem;
+    .user-inf_title {
+        padding: 30px 0;
+        font-size: 24px;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+    .user-inf_detail {
+        @include font-fml-roboto;
+        font-weight: 400;
+        display: grid;
+        p {
+            padding: 10px 0;
+        }
+        input {
+            width: 50%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            color: $cl-gray-text;
+            outline: none;
+            &:focus {
+                border-color: $cl-main;
+                box-shadow: 0 0 5px $cl-main;
+            }
+        }
+        .css-b62m3t-container {
+            width: 50%;
+        }
+        .css-1dimb5e-singleValue {
+            color: $cl-gray-text;
+        }
+        button {
+            background-color: #ccc;
+        }
+    }
+
+
+}

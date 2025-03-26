@@ -1,0 +1,7 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+
+.book-history_page {
+    @include space-page;
+    font-size: 1.6rem;
+}

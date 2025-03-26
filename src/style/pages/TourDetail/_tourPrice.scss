@@ -10,21 +10,6 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 2rem 1.6rem;
-    .tour-detail_money {
-        margin-bottom: 1rem;
-        p {
-            @include  font-fml-roboto;
-            padding: 4px 0;
-            
-        }
-        .tour-detail_money-VND {
-            margin-top: 1rem;
-            font-size: 22px;
-            span {
-                color: $cl-red;
-            }
-        }
-    }
 
     .tour-detail_filter {
        @include font-fml-cabin;
@@ -35,7 +20,21 @@
        }
     }
 }
-
+.tour-detail_money {
+    margin-bottom: 1rem;
+    p {
+        @include  font-fml-roboto;
+        padding: 4px 0;
+        
+    }
+    .tour-detail_money-VND {
+        margin-top: 1rem;
+        font-size: 22px;
+        span {
+            color: $cl-red;
+        }
+    }
+}
 
 .btn-like {
     margin-bottom: 1.6rem;

@@ -4,19 +4,17 @@ import { IoIosArrowForward } from "react-icons/io";
 
 function MenuItem({ isMenuOpen, menus }) {
     const [checkSubmenu, setCheckSubmenu] = useState(null);
-
+    
     const handleClick = (index) => {
         setCheckSubmenu(checkSubmenu === index ? null : index); // Đóng nếu bấm lại
     };
 
     useEffect(() => {
-        const homeElement = document.querySelector(".home");
+        const homeElement = document.querySelectorAll("#root > div > div")[1];
 
         if (homeElement) {
             if (isMenuOpen) {
                 homeElement.classList.add("over");
-            } else {
-                homeElement.classList.remove("over");
             }
         }
 

@@ -4,6 +4,11 @@
 .over {
     opacity: 0.6;
     background-color: #00000033;
+    input, 
+    .css-1ujzcjv-control{
+        opacity: 0.6;
+        background-color: #00000033;
+    }
 }
 .home {
     @include space-page;

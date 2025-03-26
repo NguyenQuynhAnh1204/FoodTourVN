@@ -3,4 +3,8 @@
 
 .blog-detail_container {
     margin: 3rem 0;
+    .blog-title {
+        @include font-fml-roboto;
+        font-size: 28px;
+    }
 }

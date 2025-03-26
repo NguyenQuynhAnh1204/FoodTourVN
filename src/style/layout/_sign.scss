@@ -1,0 +1,168 @@
+@use "../abstracts/" as *;
+@use "../utils/" as *;
+
+
+
+.modal-content {
+    border-radius: 10px;
+    padding: 1rem 3rem;
+}
+
+.sign-header {
+    border: none;
+    display: flex;
+    justify-content: center;
+    .modal-title {
+        @include font-fml-roboto;
+        font-size: 28px;
+        color: $cl-main;
+
+    }
+    .btn-close {
+        position: absolute;
+        top: 3%;
+        left: 92%;
+        font-size: 15px;
+    }
+}
+.sign-body {
+    border-radius: 10px;
+}
+.sign-footer {
+    border: none;
+}
+.sign-input {
+    font-size: 16px;
+    border: 1px solid $cl-black;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.sign-input::placeholder {
+    color: $cl-gray-text;
+
+}
+.sign-input:focus {
+    border-color: $cl-main;
+    outline: none;
+    box-shadow: 0 0 8px rgba(202, 112, 48, 0.5);
+}
+.sign-forgotpass {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        font-size: 12px;
+        color: $cl-main;
+        text-decoration: underline $cl-main;
+    }
+    button:hover {
+        color: $cl-btn-active; /* Màu đậm hơn khi hover */
+    }
+    button:active {
+        color: $cl-btn-active !important;
+        text-decoration: underline !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+.sign-btn {
+    font-size: 20px;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 10px;
+    background-color: $cl-main;
+    color: $cl-white;
+}
+.sign-more {
+    font-size: 20px;
+    border: 1px solid $cl-main;
+    background-color: $cl-white;
+    color: $cl-main;
+    padding: 0.6rem;
+    border-radius: 10px;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $cl-black;
+    font-size: 14px;
+    span {
+        color: $cl-main;
+        padding: 0 4px;
+        font-weight: 800;
+    }
+}
+.divider::after,
+.divider::before {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid $cl-black;
+    margin: 0 1rem;
+}
+.modal-dialog {
+    top: 15%;
+}
+.modal-btn {
+    border: 1px solid $cl-main !important;
+}
+.modal-btn:hover,
+.modal-btn:active{
+    background-color: $cl-main-click !important;
+    border: 1px solid $cl-main !important;
+    outline: none;
+}
+
+.modal-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+    color: $cl-white;
+    background-color: $cl-btn-active;
+}
+.modal-link-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+    color: $cl-main;
+    background-color: $cl-white;
+}
+.modal-link-btn:active {
+    color: $cl-btn-active !important;
+}
+
+.modal-btn-gg:focus-visible {
+    background-color: $cl-white;
+    color: $cl-main;
+}
+
+.sign-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 800;
+    .btn-link {
+        border: none;
+        padding: 0 2px 1px;
+        margin-left: 5px;
+        color: $cl-main;
+        font-weight: 900;
+        font-size: 14px;
+    }
+}
+
+.signup-otp {
+    @include center;
+    gap: 1.4rem;
+    button {
+        width: 35%;
+        padding: 1.2rem;
+        @include center;
+        @include font-fml-cabin;
+    }
+}
+
+.sign-error {
+    font-size: 14px;
+    color: $cl-red;
+    padding: 0 6px;
+}
+
