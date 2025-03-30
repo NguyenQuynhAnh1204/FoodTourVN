@@ -1,0 +1,98 @@
+@use "../../abstracts/" as *;
+@use "../../utils/" as *;
+
+.booking-page {
+    @include space-page;
+    .booking-page_title {
+        @include font-fml-roboto;
+        @include center;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+    .book-progress {
+        padding-right: 60px;
+        @include center;
+        justify-content: space-around;
+    }
+    .book-pro_item {
+        padding: 24px 0;
+        @include center;
+        flex-flow: column;
+        .book-pro_icon {
+            @include center;
+            margin: 12px 0;
+            width: 52px;
+            height: 52px;
+            font-size: 30px;
+            color: $cl-main;
+            border: 1px solid $cl-main;
+            border-radius: 99px;
+        }
+        p {
+            @include font-fml-cabin;
+            color: $cl-gray-text;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+    }
+    .book-pro_icon-arr {
+        font-size: 30px;
+        color: $cl-gray-text;
+    }
+    .booking-page_detail {
+        display: flex;
+        .book-title {
+            @include font-fml-roboto;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        .book-detail_left {
+            background-color: aqua;
+            width: 50%;
+            margin-right: 30px;
+            .book-user_inf-detail {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* 2 cột */
+                grid-template-rows: repeat(2, auto);  /* 2 hàng */
+                gap: 24px;
+                input {
+                    outline: none;
+                    color: $cl-gray-text;
+                    font-size: 14px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    border: 1px solid $cl-black;
+                    &:focus {
+                        border: 1px solid $cl-main;
+                        box-shadow: 0 0 5px rgba(220, 110, 32, 0.6);
+                    }
+                }
+            }
+        }
+        .type-passenger {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 cột */
+            grid-template-rows: repeat(2, auto);  /* 2 hàng */
+            gap: 24px;
+            .type-passenger_item {
+                display: flex;
+                justify-content: space-between;
+                background-color: antiquewhite;
+                border: 1px solid $cl-black;
+                font-size: 14px;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .number-passenger {
+               @include center;
+            }
+
+        }
+        .book-detail_right {
+            background-color: bisque;
+            width: 50%;
+            margin-left: 30px;
+        }
+    }
+}

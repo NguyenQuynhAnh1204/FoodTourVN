@@ -8,6 +8,8 @@ import UserInfPage from "./pages/users/AccountPage";
 import BookingHistoryPage from "./pages/users/BookingHistoryPage";
 import { ROUTERS } from "./utils/router";
 import MasterLayout from "./pages/users/Theme/MasterLayout";
+import ForgetPassword from "./pages/users/Theme/Header/signin/ForgetPassword";
+import BookingPage from "./pages/users/BookingPage";
 
 const renderUserRouter = () => {
     const userRouters = [
@@ -15,6 +17,10 @@ const renderUserRouter = () => {
             path: ROUTERS.USER.HOME,
             component: <HomePage/>
         }, 
+        {
+            path: ROUTERS.USER.FORGET_PASSWORD,
+            component: <ForgetPassword/>
+        },
         {
             path: ROUTERS.USER.TOURS,
             component: <Tour/>
@@ -38,6 +44,10 @@ const renderUserRouter = () => {
         {
             path: ROUTERS.USER.BOOK_HISTORY,
             component: <BookingHistoryPage/>
+        },
+        {
+            path: ROUTERS.USER.BOOKING,
+            component: <BookingPage/>
         }
     ]
     return (

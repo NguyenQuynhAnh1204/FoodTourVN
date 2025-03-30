@@ -5,10 +5,7 @@
     @include space-page;
     font-size: 1.6rem;
     .user-inf_title {
-        padding: 30px 0;
-        font-size: 24px;
-        font-weight: 900;
-        text-transform: uppercase;
+        @include user-title;
     }
     .user-inf_detail {
         @include font-fml-roboto;
@@ -40,5 +37,15 @@
         }
     }
 
-
+    .change-pass_error {
+        color: $cl-red;
+        font-size: 12px;
+        text-shadow: 1px 1px 3px rgba(176, 0, 32, 0.3);
+    }
+    .btn-password {
+        background-color: $cl-main;
+        font-size: 16px;
+        padding: 8px 30px;
+        margin: 10px 0;
+    }
 }

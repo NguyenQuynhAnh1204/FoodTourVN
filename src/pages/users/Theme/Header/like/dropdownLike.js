@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { LuTrash2 } from "react-icons/lu";
-import { FaPlus, FaMinus } from "react-icons/fa6";
+
 
 const initialData = [
   { id: 1, name: "tour 1", price: 800000, img: "img/anh1.jpeg" },
@@ -14,32 +13,7 @@ const initialData = [
 function DropdownLike({ isActive, onToggle }) {
   // State quản lý danh sách item
   const [data, setData] = useState(initialData);
-  
-  // State quản lý số lượng người tham gia
-  const [numberPeople, setNumberPeople] = useState(
-    initialData.reduce((acc, item) => ({ ...acc, [item.id]: 0 }), {})
-  );
 
-  // Tăng số lượng khách
-  const handleIncrease = (id) => {
-    setNumberPeople((prev) => ({
-      ...prev,
-      [id]: prev[id] > 1 ? prev[id] - 1 : 0,
-    }));
-  };
-
-  // Giảm số lượng khách
-  const handleDecrease = (id) => {
-    setNumberPeople((prev) => ({
-      ...prev,
-      [id]: prev[id] + 1,
-    }));
-  };
-
-  // Xóa một mục khỏi danh sách yêu thích
-  const handleRemoveItem = (id) => {
-    setData((prevData) => prevData.filter((item) => item.id !== id));
-  };
 
   useEffect(() => {
     const homeElement = document.querySelectorAll("#root > div > div")[1];
@@ -79,26 +53,11 @@ function DropdownLike({ isActive, onToggle }) {
                 </div>
               </div>
 
-              <div className="like-btn">
-                <p>Số lượng:</p>
-                <Button className="like-btn_minus like-btn_item" onClick={() => handleIncrease(item.id)}>
-                  <FaMinus />
-                </Button>
-                <div className="like-btn_number">{numberPeople[item.id]}</div>
-                <Button className="like-btn_plus like-btn_item" onClick={() => handleDecrease(item.id)}>
-                  <FaPlus />
-                </Button>
-                <Button className="like-btn_item like-btn_trash" onClick={() => handleRemoveItem(item.id)}>
-                  <LuTrash2 />
-                </Button>
-              </div>
+              
             </div>
           ))}
 
-          <div className='like-sum'>
-            <div className='like-total'>Tổng thành tiền:</div>
-            <Button>Đặt lịch</Button>
-          </div>
+          
         </div>
       ) : null}
     </>
