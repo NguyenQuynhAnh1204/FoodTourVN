@@ -48,7 +48,7 @@
             text-transform: uppercase;
         }
         .book-detail_left {
-            background-color: aqua;
+            //background-color: aqua;
             width: 50%;
             margin-right: 30px;
             .book-user_inf-detail {
@@ -90,9 +90,100 @@
 
         }
         .book-detail_right {
-            background-color: bisque;
+            //background-color: bisque;
             width: 50%;
             margin-left: 30px;
+            .booking_content {
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                height: 605px;
+                widows: 100%;
+            }
         }
     }
 }
+.calendar {
+    width: 100%;
+    margin: 8px 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+h2 {
+    margin: 0;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    text-align: center;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day, .empty-day {
+    text-align: center;
+    padding: 10px;
+}
+
+.day {
+    cursor: pointer;
+}
+
+.day:hover {
+    background-color: #f0f0f0;
+}
+
+.empty-day {
+    background-color: #f9f9f9;
+}
+
+.selected {
+    background-color: #CA7030;
+    color: white;
+    border-radius: 50%;
+}
+.image_custom_group {
+    display: flex;
+    gap: 8px;
+    margin-left: 8px;
+    align-items: center;
+}
+.input_custom {
+    margin-right: 8px;
+}
+.input_custom_group {
+    display: flex;
+    border: #000000 1px solid;
+    border-radius: 4px;
+    height: 64px;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-bottom: 1.6rem;
+}
+

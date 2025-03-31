@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function TourPrice() {
     const [data, setData] = useState([]);
-
+    const navigate = useNavigate();
     useEffect(() => {
         fetch("https://67caf3953395520e6af3c0ea.mockapi.io/decsription/tour/1")
             .then(res => res.json())
@@ -26,7 +27,7 @@ function TourPrice() {
                 <p>Hình thức: <span>Ẩm thực truyền thống</span></p>
             </div>
             <button className="btn-like" onClick>Thêm vào yêu thích</button>
-            <button className="btn-book" onClick>Đặt lịch</button>
+            <button className="btn-book" onClick={() => navigate('/booktour')}>Đặt lịch</button>
         </div>
     )
 }
