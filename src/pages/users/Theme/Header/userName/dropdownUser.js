@@ -8,6 +8,7 @@ import { FaRegCircleUser, FaCircleUser } from "react-icons/fa6";
 
 
 function DropdownUser({isActive, onToggle, handleLogout}) {
+    const userName = localStorage.getItem("token");
     useEffect(() => {
         const homeElement = document.querySelectorAll("#root > div > div")[1];
           
@@ -33,7 +34,7 @@ function DropdownUser({isActive, onToggle, handleLogout}) {
                 <FaRegCircleUser className="acc-name_icon"/>
             )
             }
-            User name
+            {userName}
         </Button>
         {
             isActive ? (

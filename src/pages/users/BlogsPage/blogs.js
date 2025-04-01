@@ -1,37 +1,36 @@
+import {BLOG_ENDPOINT} from "../../../config";
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import {ROUTERS} from "../../../utils/router";
+import BlogContent from "./blogContent";
 // import BlogInf from "../Theme/Blog";
 // import axios from "axios";
 
 function BlogItem() {
-    const [datas, setDatas] = useState([]); 
+    
     const [data, setData] = useState([]); 
-    const [index, setIndex] = useState(12);
+    const [index, setIndex] = useState(0);
     useEffect(() => {
-        fetch("https://67caf3953395520e6af3c0ea.mockapi.io/decsription/blog")
+        fetch(BLOG_ENDPOINT)
             .then(res => res.json())
             .then(dt => {
-                setDatas(dt);
-                setData(dt.slice(0, 12));
+                const data = dt.blogs;
+                setData(data);
             })
-            // .then(response => {
-            //     setDatas(response.data); 
-            //     setData(response.data.slice(0, 6));
-            //     console.log("mount");
-            // })
-            // .catch(error => {
-            //     console.log("Lỗi khi tải dữ liệu:", error);
-            // });
     }, []);
-
+    if (data.length === 0) {
+        return <p>Loading...</p>;
+    }
     const handleNext = () => {
-        if (index <= datas.length) {
-            setData(datas.slice(0, index + 6)); 
-            setIndex(index + 6);
-        }
+        setIndex(prev => Math.min(prev + 3, data.length));
     };
 
+    // lấy văn bản từ html 
+    const getFirstParagraph = (html) => {
+        let doc = new DOMParser().parseFromString(html, "text/html");
+        return doc.body.querySelector("p")?.outerHTML || "";
+    };
+    
     return (
         <div>
             <div className="blog-container">
@@ -39,16 +38,19 @@ function BlogItem() {
                     data.map((d, index) => (
                         <Link to = {ROUTERS.USER.BLOG_DETAIL}>
                         <div className="blog-item" key={d.id || index}>
-                            <img src={d.img} alt={`blog ${index + 1}`}/>
+                            <div className="blog-item_img"><img src={d.thumbnail} alt={`blog ${index + 1}`}/></div>
                             <div className="blog-description">
-                                <h4>{d.title}</h4>
-                                <p>{d.describe}</p>
+                                <h4 className="blog-description_title">{d.title}</h4>
+                                <div className="blog-description_text" dangerouslySetInnerHTML={{ __html: getFirstParagraph(d.content) }}>
+                                   
+                                </div>
                             </div>
                         </div>
                         </Link>
                     ))
                 }
             </div> 
+            
             <div className="blog-btn">
                 <button onClick={handleNext}>Xem thêm</button>
             </div>

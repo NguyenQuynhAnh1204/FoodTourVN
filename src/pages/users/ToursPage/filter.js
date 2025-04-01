@@ -1,52 +1,72 @@
+import { useState } from "react";
 
+const duration = ["Dưới 6 tiếng", "6-12 tiếng", "12-18 tiếng", "Trên 18 tiếng"];
+const people = ["Cá nhân (1 người)", "Nhóm 2-5 người", "Nhóm 5-10 người", "Nhóm 10-20 người", "Nhóm trên 20 người"];
 
 function Filter() {
+    const [value, setValue] = useState(0);
+    const [selectedDuration, setSelectedDuration] = useState("");
+    const [selectedPeople, setSelectedPeople] = useState("");
+
+    // Hàm xử lý chọn / bỏ chọn
+    const handleSelect = (setter, selectedValue, newValue) => {
+        if (selectedValue === newValue) {
+            setter("");
+        } else {
+            setter(newValue);
+        }
+        console.log(newValue)
+    };
+
     return (
         <div className="tour-filter">
             <form>
-                <fieldset>
+                {/* <fieldset>
                     <label className="filter-title">Giá</label>
                     <label className="input-range">
-                        <span>{(0).toLocaleString("vi-VN")}<sup>đ</sup></span>
-                        <input type="range" min="0đ" max="20000000" defaultValue={0}/>
-                        <span>{(20000000).toLocaleString("vi-VN")}<sup>đ</sup></span>
+                        <span>{parseInt(value).toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
+                        <input 
+                            type="range" 
+                            min="0" 
+                            max="20000" 
+                            step="1000"
+                            value={value} 
+                            onChange={(e) => setValue(e.target.value)}
+                        />
+                        <span>{(20000).toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
                     </label>
-                </fieldset>
+                </fieldset> */}
+
                 <fieldset>
-                    <label className="filter-title">Thời lượng tuor</label>
-                    <label><input type="checkbox" />Dưới 6 tiếng</label>
-                    <label><input type="checkbox"/>6-12 tiếng</label>
-                    <label><input type="checkbox"/>12-18 tiếng</label>
-                    <label><input type="checkbox"/>Trên 18 tiếng</label>
+                    <label className="filter-title">Thời lượng</label>
+                    {duration.map((item) => (
+                        <label key={item}>
+                            <input 
+                                type="checkbox" 
+                                checked={selectedDuration === item} 
+                                onChange={() => handleSelect(setSelectedDuration, selectedDuration, item)}
+                            />
+                            {item}
+                        </label>
+                    ))}
                 </fieldset>
 
                 <fieldset>
                     <label className="filter-title">Số người tham gia</label>
-                    <label><input type="checkbox"/>Cá nhân (1 người)</label>
-                    <label><input type="checkbox"/>Nhóm 2-5 người</label>
-                    <label><input type="checkbox"/>Nhóm 5-10 người</label>
-                    <label><input type="checkbox"/>Nhóm 10-20 người</label>
-                    <label><input type="checkbox"/>Nhóm trên 20 người</label>
-                </fieldset>
-
-                <fieldset>
-                    <label  className="filter-title">Hình thức trải nghiệm</label>
-                    <label><input type="checkbox"/>Ẩm thực đường phố</label>
-                    <label><input type="checkbox"/>Nhà hàng hạng sang</label>
-                    <label><input type="checkbox"/>Ẩm thực truyền thống</label>
-                    <label><input type="checkbox"/>Thực phẩm healthy</label>
-                </fieldset>
-                
-                <fieldset>
-                    <label  className="filter-title">Đánh giá</label>
-                    <label><input type="checkbox"/>Từ 5 sao</label>
-                    <label><input type="checkbox"/>Trên 4.5 sao</label>
-                    <label><input type="checkbox"/>Trên 4 sao</label>
-                    <label><input type="checkbox"/>Dưới 4 sao</label>
+                    {people.map((item) => (
+                        <label key={item}>
+                            <input 
+                                type="checkbox" 
+                                checked={selectedPeople === item} 
+                                onChange={() => handleSelect(setSelectedPeople, selectedPeople, item)}
+                            />
+                            {item}
+                        </label>
+                    ))}
                 </fieldset>
             </form>   
         </div>
-    )
+    );
 }
 
 export default Filter;

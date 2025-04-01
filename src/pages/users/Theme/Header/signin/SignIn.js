@@ -1,3 +1,4 @@
+import { AUTH_ENDPOINTS } from "../../../../../config";
 import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -9,11 +10,12 @@ import Modal from 'react-bootstrap/Modal';
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|vn|info|biz|co\.uk|io|dev)$/; // Regex kiểm tra email
+const phoneRegex = /^(0[3-9][0-9]{8}|(\+84|84)[3-9][0-9]{8})$/; // Regex kiểm tra số điện thoại VN
 
 const signupSchema = z.object({
     emailOrPhone: z.string().min(1, "Vui lòng nhập email hoặc số điện thoại").refine((value) => {
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|vn|info|biz|co\.uk|io|dev)$/; // Regex kiểm tra email
-        const phoneRegex = /^(0[3-9][0-9]{8}|(\+84|84)[3-9][0-9]{8})$/; // Regex kiểm tra số điện thoại VN
+        
         return emailRegex.test(value) || phoneRegex.test(value);
     }, {
         message: "Email hoặc số điện thoại không hợp lệ",
@@ -44,9 +46,42 @@ function SignIn({ showSignIn, handleCloseSignIn, handleShowSignUp, handleAccess 
     }, [showSignIn]);
 
     const onSubmit = async (data) => {
-        await new Promise(resolve => setTimeout(resolve, 100));
-        handleAccess();
-        reset();
+        let formData = {
+            password: data.password
+        };
+    
+        if (emailRegex.test(data.emailOrPhone)) {
+            formData.email = data.emailOrPhone;  
+        } else if (phoneRegex.test(data.emailOrPhone)) {
+            formData.phone = data.emailOrPhone;
+        } else {
+            alert("Email hoặc số điện thoại không hợp lệ!");
+            return;
+        }
+    
+        try {
+            const response = await fetch(AUTH_ENDPOINTS.SIGN_IN, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+    
+            const result = await response.json();
+            // console.log(result); 
+            if (response.ok) {
+                handleAccess();
+                reset();
+                localStorage.setItem("name", result.name);
+            } else {
+                console.error("Lỗi đăng nhập:", result);
+                alert(result.message || "Đăng nhập thất bại!");
+            }
+        } catch (error) {
+            console.error("Lỗi kết nối:", error);
+            alert("Không thể kết nối đến máy chủ. Vui lòng thử lại!");
+        }
     };
 
     const handleForgetPass = () => {

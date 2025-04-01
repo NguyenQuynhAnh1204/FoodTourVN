@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function SortTour() {
+function SortTour({ onSortChange }) {
     const [sort, setSort] = useState("hight");
 
     const handleSort = (sortType) => {
         setSort(sortType);
+        onSortChange(sortType); // Gửi giá trị sort lên TourItem
     };
-
     return (
         <div className="tour-sort">
             <button 
@@ -21,12 +21,7 @@ function SortTour() {
             >
                 Giá Thấp - Cao
             </button>
-            <button 
-                className={`tour-sort_star ${sort === "rating" ? "sort-btn" : ""}`} 
-                onClick={() => handleSort("rating")}
-            >
-                Đánh giá
-            </button>
+           
         </div>
     );
 }

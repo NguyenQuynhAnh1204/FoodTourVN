@@ -22,7 +22,7 @@ function TourDetail() {
             </div>
             <div className="tour-detail_container">
                 <h4>Bún Săn Mồi - Thử hết các loại bún ngon nhất Hà Nội!</h4>
-                <p>rating</p>
+                
                 <div className="tour-detail_inf">
                     <TourImg/> 
                     <TourPrice/>
@@ -32,9 +32,9 @@ function TourDetail() {
                     <TourSchedule/>
                     <TourSupplyInf/>
                 </div>
-                <div className="tour-detail_comments">
+                {/* <div className="tour-detail_comments">
                     <TourRating/>
-                </div>
+                </div> */}
             </div>
         </div>
     )
