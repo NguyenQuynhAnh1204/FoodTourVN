@@ -19,6 +19,7 @@
         margin: 2rem 0;
         .timetable-detail_time {
             @include font-fml-roboto;
+            color: $cl-main;
             font-family: 2rem;
         }
         .timetable-detail_text {

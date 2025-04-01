@@ -4,20 +4,20 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const imgs = [
-    "/img/anh11.jpeg",
-    "/img/anh1.jpeg",
-    "/img/anh7.jpeg",
-    "/img/anh5.jpeg",
-    "/img/anh12.jpeg",
-    "/img/anh10.jpeg",
-]
+// const imgs = [
+//     "/img/anh11.jpeg",
+//     "/img/anh1.jpeg",
+//     "/img/anh7.jpeg",
+//     "/img/anh5.jpeg",
+//     "/img/anh12.jpeg",
+//     "/img/anh10.jpeg",
+// ]
 
 
 // import { useState, useEffect } from "react";
 
 
-function TourImg() {
+function TourImg({imgs}) {
     const [img, setImg] = useState(imgs[0])
 
     useEffect(() => {
@@ -47,7 +47,7 @@ function TourImg() {
                     <Slider {...settings}>
                         {imgs.map((img, index) => (
                             <div className="img-item" key={index}>
-                                <img src={img} alt={`tour ${index}`} onClick={() => setImg(img)}/>
+                                <img src={img} alt={`anh ${index+1}`} onClick={() => setImg(img)}/>
                             </div>
                         ))}
                     </Slider>

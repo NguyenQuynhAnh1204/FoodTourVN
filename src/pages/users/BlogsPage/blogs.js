@@ -2,7 +2,7 @@ import {BLOG_ENDPOINT} from "../../../config";
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import {ROUTERS} from "../../../utils/router";
-import BlogContent from "./blogContent";
+// import BlogContent from "./blogContent";
 // import BlogInf from "../Theme/Blog";
 // import axios from "axios";
 
@@ -36,7 +36,7 @@ function BlogItem() {
             <div className="blog-container">
                 {
                     data.map((d, index) => (
-                        <Link to = {ROUTERS.USER.BLOG_DETAIL}>
+                        <Link to = {ROUTERS.USER.BLOG_DETAIL.replace(":title", d.slug)}>
                         <div className="blog-item" key={d.id || index}>
                             <div className="blog-item_img"><img src={d.thumbnail} alt={`blog ${index + 1}`}/></div>
                             <div className="blog-description">

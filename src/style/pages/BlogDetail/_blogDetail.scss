@@ -6,5 +6,33 @@
     .blog-title {
         @include font-fml-roboto;
         font-size: 28px;
+        padding: 0.8rem 0 3rem;
+    }
+    h2 {
+        @include font-fml-roboto;
+        padding: 24px 0 10px;
+        color: $cl-main;
+    }
+    p:first-child {
+        font-weight: 600;
+    }
+    p {
+        line-height: 1.4;
+    }
+    li {
+        width: 60%;
+        margin: 24px 0;
+    }
+    figure {
+        @include center;
+        flex-flow: column;
+        img {
+            width: 40%;
+            max-height: 400px;
+            margin: 16px 0;
+        }
+        figcaption {
+            font-style: italic;
+        }
     }
 }

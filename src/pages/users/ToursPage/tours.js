@@ -50,7 +50,7 @@ function TourItem() {
                     <div className="tour-content">
                         {
                             data.slice(0, visibleCount).map((d, index) => (
-                                <Link to={ROUTERS.USER.TOUR_DETAIL} key={index}>
+                                <Link to={ROUTERS.USER.TOUR_DETAIL.replace(":title", d.slug)} key={index}>
                                     <div className="tour-near_item">
                                         <img src={d.image[0]} alt={`tour ${index+1}`} />
                                         <div className="description">

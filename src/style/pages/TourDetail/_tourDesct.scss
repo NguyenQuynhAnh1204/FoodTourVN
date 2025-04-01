@@ -8,6 +8,9 @@
     border-radius: 10px;
     .tour-detail_desc-text {
         padding: 2.4rem;
+        ul {
+            line-height: 1.4;
+        }
     }
     .desc-title {
         @include font-fml-roboto;
