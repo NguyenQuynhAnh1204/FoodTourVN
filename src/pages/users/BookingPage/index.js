@@ -3,15 +3,20 @@ import { CiCreditCard1, CiCircleCheck } from "react-icons/ci";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import NumberPassenger from "./numberPassenger";
 import {useEffect, useState} from "react";
+import ShowQR from "./showQR";
 
 
 function BookingPage() {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDay, setSelectedDay] = useState(null); // Lưu ngày đã chọn
     const [daysInMonth, setDaysInMonth] = useState([]);
+    const [showQr, setShowQr] = useState(false)
     const [firstDayOfMonth, setFirstDayOfMonth] = useState(0);
     const bankIcon = process.env.PUBLIC_URL + "/img/bank.svg";
     const moneyIcon = process.env.PUBLIC_URL + "/img/money.svg";
+    const bunImg = process.env.PUBLIC_URL + "/img/bun.svg";
+    const addSvg = process.env.PUBLIC_URL + "/img/add.svg";
+
     useEffect(() => {
         const year = currentDate.getFullYear();
         const month = currentDate.getMonth();
@@ -38,7 +43,7 @@ function BookingPage() {
         setSelectedDay(null);
     };
     const handleDayClick = (day) => {
-        setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), day)); // Cập nhật currentDate
+        setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), day));
         setSelectedDay(day);
     };
     const renderDays = () => {
@@ -151,10 +156,71 @@ function BookingPage() {
                 <div className="book-detail_right">
                     <p className="book-title">Tóm tắt tour</p>
                     <div className="booking_content">
-aa
+                        <div className="booking_header">
+                            <img src={bunImg} alt="bun" />
+                            <div className="booking_cover">
+                                <div className="text_title">Bún Săn Mồi – Thử hết các loại bún ngon nhất Hà Nội!</div>
+                                <span className="text_cover">Mã tour: <span style={{ fontWeight: '600'}}>TOURBUN01_01</span></span>
+                            </div>
+                        </div>
+                        <div className="d-flex justify-content-between">
+                            <span className="text_cover">Thời lượng: <span style={{color: '#CA7030'}}>8 tiếng</span></span>
+                            <span className="text_cover">Số người: <span style={{color: '#CA7030'}}> 5-10 người</span></span>
+                        </div>
+                        <div>
+                            <div className="text_title pb-4">Thời gian tour</div>
+                            <div className="d-flex justify-content-between flex-row">
+                                <div className="text_cover">Thời gian đi:</div>
+                                <div className="text_cover">15/03/2025 8:00</div>
+                            </div>
+                            <div className="d-flex justify-content-between flex-row pt-4">
+                                <div className="text_cover">Thời gian về: </div>
+                                <div className="text_cover">15/03/2025 16:00</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="pb-4 d-flex justify-content-between flex-row">
+                                <div className="text_title ">Thành tiền</div>
+                                <div style={{fontSize: '18px', fontWeight: '600', color:'#FF0000'}}>4.200.000 đ</div>
+                            </div>
+                            <div className="d-flex justify-content-between flex-row">
+                                <div className="text_cover">Người lớn: </div>
+                                <div className="text_cover">4 x 800.000 đ</div>
+                            </div>
+                            <div className="d-flex justify-content-between flex-row pt-4">
+                                <div className="text_cover">Trẻ em:  </div>
+                                <div className="text_cover">2 x 500.000 đ</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="pb-4 d-flex justify-content-between flex-row">
+                                <div className="text_title ">Mã giảm giá</div>
+                                <div style={{fontSize: '18px', fontWeight: '600', color:'#FF0000'}}>
+                                <img src={addSvg} alt='add' style={{marginRight: '4px', cursor:'pointer'}}/>
+                                    Thêm mã giảm giá
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="pb-4 d-flex justify-content-between flex-row">
+                                <div className="text_title ">Tổng tiền</div>
+                                <div style={{fontSize: '18px', fontWeight: '600', color:'#FF0000'}}>
+                                    4.200.000 đ
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            style={{ marginTop: '60px', width: '100%', height: '60px', color: '#FFFFFF', borderRadius: '10px', backgroundColor: '#CA7030', fontSize: '22px', fontWeight: '600' }}
+                        onClick={() => {
+                            setShowQr(true)
+                        }}
+                        >
+                            ĐẶT TOUR
+                        </button>
                     </div>
                 </div>
             </div>
+            {showQr && <ShowQR handleClose={() => setShowQr(false)}/>}
         </div>
     )
 }

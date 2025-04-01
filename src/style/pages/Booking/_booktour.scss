@@ -97,6 +97,10 @@
                 box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
                 height: 605px;
                 width: 100%;
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px
             }
         }
     }
@@ -186,4 +190,45 @@ h2 {
     font-size: 14px;
     margin-bottom: 1.6rem;
 }
+.booking_header {
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+}
+.booking_cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
+}
+.text_title {
+    font-size: 18px;
+    font-weight: 600;
+}
+.text_cover {
+    font-size: 12px;
+    font-weight: 400;
+}
+.show_qr {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #00000033;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .show_qr_content {
+        background-color: #FFFFFF;
+        width: 480px;
+        height: 549px;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        z-index: 1;
+    }
+}
